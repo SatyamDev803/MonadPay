@@ -30,6 +30,7 @@ import {
   encodeWebPaymentLink,
   isValidAddress,
 } from "@/lib/deeplink-utils";
+import { CONTRACT_ADDRESSES } from "@/lib/contract";
 
 export default function CreatePage() {
   const { address, isConnected } = useAccount();
@@ -64,9 +65,22 @@ export default function CreatePage() {
       return;
     }
 
-    const request = { to, amount, label, memo };
+    // Build request object with proper typing
+    const request = {
+      to,
+      amount,
+      ...(token !== "MON" && {
+        token:
+          token === "USDC"
+            ? CONTRACT_ADDRESSES.tokens.USDC
+            : CONTRACT_ADDRESSES.tokens.USDT,
+      }),
+      ...(label && { label }),
+      ...(memo && { memo }),
+    };
+
     const deepLink = encodePaymentLink(request);
-    const web = encodeWebPaymentLink(request);
+    const web = encodeWebPaymentLink(request, "http://localhost:3000");
 
     setGeneratedLink(deepLink);
     setWebLink(web);
@@ -218,6 +232,13 @@ export default function CreatePage() {
                 >
                   Generate Payment Link
                 </Button>
+
+                {/* V2 Badge */}
+                <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
+                  <div className="px-2 py-1 bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-md font-medium">
+                    Powered by MonadPay V2
+                  </div>
+                </div>
               </CardContent>
             </Card>
 

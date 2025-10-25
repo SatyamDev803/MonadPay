@@ -54,9 +54,11 @@ export default function Home() {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="text-lg px-8 w-full sm:w-auto">
-              View Demo
-            </Button>
+            <Link href="/batch">
+              <Button size="lg" variant="outline" className="text-lg px-8 w-full sm:w-auto">
+                Split Payment
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -117,7 +119,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t py-8 mt-20">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>Built with ❤️ on Monad</p>
+          <p>Built with ❤️ on Monad • MonadPay V2</p>
         </div>
       </footer>
     </div>
