@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MonadPay - Deep Link Payment Protocol
 
-## Getting Started
+**Send crypto payments as easily as sharing a link**
 
-First, run the development server:
+Built for Monad Hackathon 2025 | [Contracts →](https://testnet.monadexplorer.com/address/0x6b49B76C7C18Dae32F4A8F00F78787C43955e0ED)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## What is MonadPay?
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+MonadPay is a deep link-based payment protocol on Monad that enables instant crypto payments through shareable URLs (`monadpay://send?...`). Create payment links, share via social media or messaging, and get paid in one click.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Why MonadPay?
+- **1-second finality** on Monad
+- **Simple**: Share payments like URLs
+- **Cheap**: ~$0.001 per transaction
+- **Mobile-ready**: QR codes & NFC support
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Key Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Standard Payments** - Instant peer-to-peer transfers
+2. **Payment Requests** - Time-limited invoices (expire after X days)
+3. **Batch Payments** - Pay multiple recipients at once (split bills)
+4. **Multi-Token** - Supports MON, USDC, USDT
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Deployed Contracts (Monad Testnet)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Contract | Address |
+|----------|---------|
+| **MonadPayProcessor V2** | `0x6b49B76C7C18Dae32F4A8F00F78787C43955e0ED` |
+| **Mock USDC** | `0x6B2Aeb008CD4a052aa3eA374Fa9Fa327946E857F` |
+| **Mock USDT** | `0x54F413dE692C18e87265c7108e0F81d25F3BFc60` |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Network:** Monad Testnet (Chain ID: 10143)  
+**RPC:** `https://testnet.monad.xyz/rpc`
+
+---
+
+## Tech Stack
+
+- **Smart Contracts:** Solidity 0.8.24, Hardhat
+- **Frontend:** Next.js 14, TypeScript, Wagmi, TailwindCSS
+- **Blockchain:** Monad Testnet (10k TPS, 1-sec finality)
+
+---
